@@ -11,29 +11,52 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+
+
+
+
+# AddressForm
+A drop-in address form with autocomplete and validation.
+
+https://user-images.githubusercontent.com/70937274/219762068-59e82d12-dba0-49a8-bc21-e89e1f8f23aa.mp4
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Address autocomplete
+- Returns a formatted address as well as individual address components and coordinates
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add `address_form` as a dependency in your pubspec.yaml file
+
+```
+flutter pub add address_form
+```
+
+Import PhotoX:
+```dart
+import 'package:address_form/address_form.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+final mainKey = GlobalKey<AddressFormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            AddressForm(
+              apiKey: "",
+              mainKey: mainKey,
+              key: mainKey,
+            )
+          ],
+        ),
+      );
+    }
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
