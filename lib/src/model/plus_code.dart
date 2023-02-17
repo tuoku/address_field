@@ -10,9 +10,9 @@ class PlusCode {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['compound_code'] = this.compoundCode;
-    data['global_code'] = this.globalCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['compound_code'] = compoundCode;
+    data['global_code'] = globalCode;
     return data;
   }
 }

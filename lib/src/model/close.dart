@@ -10,9 +10,9 @@ class Close {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['day'] = this.day;
-    data['time'] = this.time;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['day'] = day;
+    data['time'] = time;
     return data;
   }
 }

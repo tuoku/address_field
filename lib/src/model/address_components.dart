@@ -12,10 +12,10 @@ class AddressComponents {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['long_name'] = this.longName;
-    data['short_name'] = this.shortName;
-    data['types'] = this.types;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['long_name'] = longName;
+    data['short_name'] = shortName;
+    data['types'] = types;
     return data;
   }
 }

@@ -30,15 +30,15 @@ class Reviews {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['author_name'] = this.authorName;
-    data['author_url'] = this.authorUrl;
-    data['language'] = this.language;
-    data['profile_photo_url'] = this.profilePhotoUrl;
-    data['rating'] = this.rating;
-    data['relative_time_description'] = this.relativeTimeDescription;
-    data['text'] = this.text;
-    data['time'] = this.time;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['author_name'] = authorName;
+    data['author_url'] = authorUrl;
+    data['language'] = language;
+    data['profile_photo_url'] = profilePhotoUrl;
+    data['rating'] = rating;
+    data['relative_time_description'] = relativeTimeDescription;
+    data['text'] = text;
+    data['time'] = time;
     return data;
   }
 }

@@ -35,8 +35,8 @@ class InputField extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(label, style: TextStyle(color: Color(0xff666666))),
-            SizedBox(
+            Text(label, style: const TextStyle(color: Color(0xff666666))),
+            const SizedBox(
               height: 5,
             ),
             TextFormField(
@@ -49,7 +49,7 @@ class InputField extends StatelessWidget {
               obscureText: obscureText ?? false,
               readOnly: readOnly,
               decoration: InputDecoration(
-                fillColor: Color(0xfff6f6f6),
+                fillColor: const Color(0xfff6f6f6),
                 filled: true,
                 //hintText: label,
                 //labelText: label,

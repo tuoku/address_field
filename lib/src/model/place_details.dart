@@ -15,19 +15,19 @@ class PlaceDetails {
       });
     }
     result =
-        json['result'] != null ? new Result.fromJson(json['result']) : null;
+        json['result'] != null ? Result.fromJson(json['result']) : null;
     status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.htmlAttributions != null) {
-      data['html_attributions'] = this.htmlAttributions!.map((v) => v).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (htmlAttributions != null) {
+      data['html_attributions'] = htmlAttributions!.map((v) => v).toList();
     }
-    if (this.result != null) {
-      data['result'] = this.result!.toJson();
+    if (result != null) {
+      data['result'] = result!.toJson();
     }
-    data['status'] = this.status;
+    data['status'] = status;
     return data;
   }
 }

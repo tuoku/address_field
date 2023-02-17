@@ -34,7 +34,7 @@ class AddressPickerRouteWrapper extends StatefulWidget {
 }
 
 class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
-  final uuid = Uuid();
+  final uuid = const Uuid();
   late PlacesService _service;
 
   List<Prediction> predictions = [];
@@ -49,7 +49,6 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
   @override
   void initState() {
     final id = uuid.v4();
-    print("initializing service with UUID " + id);
     _service = PlacesService(sessionId: id, apiKey: widget.apiKey);
 
     widget.addressController.addListener(() {
@@ -78,7 +77,7 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
               Navigator.of(context).pop();
             },
             child: Container(
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 color: Colors.black.withOpacity(0.5),
                 child: SafeArea(
                     child: Container(
@@ -88,17 +87,17 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
                         child: Column(
                           children: [
                             Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(16),
                                         topRight: Radius.circular(16))),
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 child:
                                     Hero(tag: "street", child: widget.child)),
                             Container(
                                 width: double.infinity,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(16),
@@ -110,7 +109,6 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
                                         onTap: () async {
                                           final result = await _service
                                               .fetchDetails(e.placeId);
-                                          print(result);
 
                                           String? zip = (result
                                                       ?.addressComponents ??
@@ -145,10 +143,7 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
                                                           .contains(
                                                               "street_number"))
                                                   ?.longName;
-                                          print(zip);
-                                          print(city);
-                                          print(streetAddress);
-                                          print(streetNumber);
+
                                           widget.mainKey.currentState
                                               ?.setState(() {
                                             if (result?.geometry?.location !=
@@ -182,6 +177,7 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
                                             widget.mainKey.currentState
                                                 ?.modalOpen = false;
                                           });
+                                          if (!mounted) return;
                                           Navigator.of(context).pop();
                                         },
                                         title: Text(e.description),
@@ -189,9 +185,9 @@ class _AddressPickerRouteWrapperState extends State<AddressPickerRouteWrapper> {
                                     ),
                                     Row(
                                       children: [
-                                        Spacer(),
+                                        const Spacer(),
                                         Padding(
-                                            padding: EdgeInsets.all(10),
+                                            padding: const EdgeInsets.all(10),
                                             child: Image.asset(
                                               'assets/google_white.png',
                                               package: 'address_form',

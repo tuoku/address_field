@@ -61,7 +61,7 @@ class Result {
     if (json['address_components'] != null) {
       addressComponents = <AddressComponents>[];
       json['address_components'].forEach((v) {
-        addressComponents!.add(new AddressComponents.fromJson(v));
+        addressComponents!.add(AddressComponents.fromJson(v));
       });
     }
     adrAddress = json['adr_address'];
@@ -69,7 +69,7 @@ class Result {
     formattedAddress = json['formatted_address'];
     formattedPhoneNumber = json['formatted_phone_number'];
     geometry = json['geometry'] != null
-        ? new Geometry.fromJson(json['geometry'])
+        ? Geometry.fromJson(json['geometry'])
         : null;
     icon = json['icon'];
     iconBackgroundColor = json['icon_background_color'];
@@ -77,24 +77,24 @@ class Result {
     internationalPhoneNumber = json['international_phone_number'];
     name = json['name'];
     openingHours = json['opening_hours'] != null
-        ? new OpeningHours.fromJson(json['opening_hours'])
+        ? OpeningHours.fromJson(json['opening_hours'])
         : null;
     if (json['photos'] != null) {
       photos = <Photos>[];
       json['photos'].forEach((v) {
-        photos!.add(new Photos.fromJson(v));
+        photos!.add(Photos.fromJson(v));
       });
     }
     placeId = json['place_id'];
     plusCode = json['plus_code'] != null
-        ? new PlusCode.fromJson(json['plus_code'])
+        ? PlusCode.fromJson(json['plus_code'])
         : null;
     rating = json['rating'];
     reference = json['reference'];
     if (json['reviews'] != null) {
       reviews = <Reviews>[];
       json['reviews'].forEach((v) {
-        reviews!.add(new Reviews.fromJson(v));
+        reviews!.add(Reviews.fromJson(v));
       });
     }
     types = json['types'].cast<String>();
@@ -106,44 +106,44 @@ class Result {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.addressComponents != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (addressComponents != null) {
       data['address_components'] =
-          this.addressComponents!.map((v) => v.toJson()).toList();
+          addressComponents!.map((v) => v.toJson()).toList();
     }
-    data['adr_address'] = this.adrAddress;
-    data['business_status'] = this.businessStatus;
-    data['formatted_address'] = this.formattedAddress;
-    data['formatted_phone_number'] = this.formattedPhoneNumber;
-    if (this.geometry != null) {
-      data['geometry'] = this.geometry!.toJson();
+    data['adr_address'] = adrAddress;
+    data['business_status'] = businessStatus;
+    data['formatted_address'] = formattedAddress;
+    data['formatted_phone_number'] = formattedPhoneNumber;
+    if (geometry != null) {
+      data['geometry'] = geometry!.toJson();
     }
-    data['icon'] = this.icon;
-    data['icon_background_color'] = this.iconBackgroundColor;
-    data['icon_mask_base_uri'] = this.iconMaskBaseUri;
-    data['international_phone_number'] = this.internationalPhoneNumber;
-    data['name'] = this.name;
-    if (this.openingHours != null) {
-      data['opening_hours'] = this.openingHours!.toJson();
+    data['icon'] = icon;
+    data['icon_background_color'] = iconBackgroundColor;
+    data['icon_mask_base_uri'] = iconMaskBaseUri;
+    data['international_phone_number'] = internationalPhoneNumber;
+    data['name'] = name;
+    if (openingHours != null) {
+      data['opening_hours'] = openingHours!.toJson();
     }
-    if (this.photos != null) {
-      data['photos'] = this.photos!.map((v) => v.toJson()).toList();
+    if (photos != null) {
+      data['photos'] = photos!.map((v) => v.toJson()).toList();
     }
-    data['place_id'] = this.placeId;
-    if (this.plusCode != null) {
-      data['plus_code'] = this.plusCode!.toJson();
+    data['place_id'] = placeId;
+    if (plusCode != null) {
+      data['plus_code'] = plusCode!.toJson();
     }
-    data['rating'] = this.rating;
-    data['reference'] = this.reference;
-    if (this.reviews != null) {
-      data['reviews'] = this.reviews!.map((v) => v.toJson()).toList();
+    data['rating'] = rating;
+    data['reference'] = reference;
+    if (reviews != null) {
+      data['reviews'] = reviews!.map((v) => v.toJson()).toList();
     }
-    data['types'] = this.types;
-    data['url'] = this.url;
-    data['user_ratings_total'] = this.userRatingsTotal;
-    data['utc_offset'] = this.utcOffset;
-    data['vicinity'] = this.vicinity;
-    data['website'] = this.website;
+    data['types'] = types;
+    data['url'] = url;
+    data['user_ratings_total'] = userRatingsTotal;
+    data['utc_offset'] = utcOffset;
+    data['vicinity'] = vicinity;
+    data['website'] = website;
     return data;
   }
 }

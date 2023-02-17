@@ -10,7 +10,6 @@ class PlacesService {
   final String sessionId;
   final String apiKey;
   Future<List<Prediction>> fetchPredictions(String term) async {
-    print("calling service with sessionId " + sessionId);
     final url =
         "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$term&radius=50000&sessiontoken=$sessionId&key=$apiKey&types=address";
     final res = await http.get(Uri.parse(url));

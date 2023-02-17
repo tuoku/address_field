@@ -8,20 +8,20 @@ class Viewport {
 
   Viewport.fromJson(Map<String, dynamic> json) {
     northeast = json['northeast'] != null
-        ? new Location.fromJson(json['northeast'])
+        ? Location.fromJson(json['northeast'])
         : null;
     southwest = json['southwest'] != null
-        ? new Location.fromJson(json['southwest'])
+        ? Location.fromJson(json['southwest'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.northeast != null) {
-      data['northeast'] = this.northeast!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (northeast != null) {
+      data['northeast'] = northeast!.toJson();
     }
-    if (this.southwest != null) {
-      data['southwest'] = this.southwest!.toJson();
+    if (southwest != null) {
+      data['southwest'] = southwest!.toJson();
     }
     return data;
   }

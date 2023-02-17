@@ -54,7 +54,7 @@ class AddressFormState extends State<AddressForm> {
   late FocusNode addressNode;
 
   bool modalOpen = false;
-  Duration addressTransitionDuration = Duration(milliseconds: 300);
+  Duration addressTransitionDuration = const Duration(milliseconds: 300);
 
   void setModalOpen(bool val) {
     setState(() {
@@ -85,14 +85,13 @@ class AddressFormState extends State<AddressForm> {
               prefix: !modalOpen
                   ? null
                   : IconButton(
-                      icon: Icon(Icons.arrow_back),
+                      icon: const Icon(Icons.arrow_back),
                       onPressed: () {
                         setSelf(
                           () {
                             modalOpen = false;
                           },
                         );
-                        print(modalOpen);
                         Navigator.of(context).pop();
                       }),
               onTap: modalOpen
@@ -101,7 +100,6 @@ class AddressFormState extends State<AddressForm> {
                       setSelf(() {
                         modalOpen = true;
                       });
-                      print(modalOpen);
                       Future.delayed(addressTransitionDuration)
                           .then((_) => addressNode.requestFocus());
                       Navigator.of(context).push(PageRouteBuilder(
@@ -120,12 +118,12 @@ class AddressFormState extends State<AddressForm> {
                             return AddressPickerRouteWrapper(
                               apiKey: widget.apiKey,
                               mainKey: widget.mainKey,
-                              child: child,
                               anim: b,
                               addressController: _streetAddressController,
                               zipController: _zipController,
                               cityController: _cityController,
                               setModal: setModalOpen,
+                              child: child,
                             );
                           }));
                     },
